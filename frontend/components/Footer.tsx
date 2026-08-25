@@ -1,0 +1,1 @@
+export function Footer() { return <footer className="shell footer"><p>© {new Date().getFullYear()} David Moenga. Built with intention.</p><p>Software Engineer · Data Analyst · Nairobi, Kenya</p></footer>; }
