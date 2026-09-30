@@ -1,22 +1,19 @@
-"use client";
-import { useState } from "react";
 export function ProfileImage() {
-  const [notAdded, setNotAdded] = useState(false);
-  return notAdded ? (
-    <div className="portrait" />
-  ) : (
-    <img
-      src="/Dave.jpg"
-      alt="David Moenga"
-      onError={() => setNotAdded(true)}
-      style={{
-        position: "absolute",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        objectPosition: "center",
-      }}
-    />
+  return (
+    <div className="portrait">
+      <img
+        src="/profile.jpeg"
+        alt="David Moenga"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: "160px 160px 0 0",
+        }}
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = "none";
+        }}
+      />
+    </div>
   );
 }

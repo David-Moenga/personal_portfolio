@@ -1,3 +1,117 @@
 "use client";
-import { FormEvent, useState } from "react";
-export default function ContactPage(){const [sent,setSent]=useState(false);async function submit(e:FormEvent<HTMLFormElement>){e.preventDefault();const form=e.currentTarget;const data=Object.fromEntries(new FormData(form));try{const response=await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"}/contact/`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});if(!response.ok) return;}catch{return;}setSent(true);form.reset()}return <><section className="shell page-hero"><p className="eyebrow">Contact</p><h1>Let&apos;s work together.</h1><p className="lead">Have an idea, opportunity, or a problem that needs a thoughtful solution? I&apos;d love to hear about it.</p></section><section className="shell section">{sent?<div className="card"><h3 style={{marginTop:0}}>Message received.</h3><p>Thanks for reaching out. I&apos;ll get back to you as soon as I can.</p></div>:<form className="form" onSubmit={submit}><input required name="name" placeholder="Your name"/><input required type="email" name="email" placeholder="Email address"/><input name="subject" placeholder="Subject"/><textarea required name="message" placeholder="Tell me a little about what&apos;s on your mind..."/><button className="button" type="submit">Send message →</button><p className="note">Your message is sent securely to the portfolio API.</p></form>}</section></>}
+
+import { useState } from "react";
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/contact/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("sent");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <>
+      <section className="shell page-hero">
+        <p className="eyebrow">Contact</p>
+        <h1>Let&apos;s work together.</h1>
+        <p className="lead">
+          Have a project in mind or just want to chat? Feel free to reach out.
+        </p>
+      </section>
+
+      <section className="shell section">
+        <div className="contact-grid">
+          <div>
+            <h2>Get in touch</h2>
+            <p style={{ color: "var(--muted)" }}>
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            <div className="contact-info">
+              <p>
+                <strong>Email:</strong> david.moenga@example.com
+              </p>
+              <p>
+                <strong>Location:</strong> Nairobi, Kenya
+              </p>
+              <p>
+                <strong>Availability:</strong> Open to opportunities
+              </p>
+            </div>
+          </div>
+
+          <div className="card">
+            <h3>Send a message</h3>
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="button"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending..." : "Send Message"}
+              </button>
+              {status === "sent" && (
+                <p className="form-success">Message sent successfully!</p>
+              )}
+              {status === "error" && (
+                <p className="form-error">Failed to send message. Please try again.</p>
+              )}
+            </form>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

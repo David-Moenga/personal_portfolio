@@ -1,6 +1,52 @@
 export const projects = [
-  { title: "InsightBoard", kind: "Data platform", mark: "01", style: "", description: "An analytics dashboard that turns operational data into clear, useful decisions.", tags: ["Python", "PostgreSQL", "Next.js"] },
-  { title: "Connect Kenya", kind: "Web application", mark: "02", style: "alt", description: "A community platform designed around accessible, human-centered digital experiences.", tags: ["Django", "REST API", "React"] },
-  { title: "Market Lens", kind: "Data analysis", mark: "03", style: "gold", description: "A data storytelling project exploring trends through interactive visualisation.", tags: ["SQL", "Pandas", "Power BI"] },
+  {
+    title: "TrustMall",
+    kind: "Blockchain",
+    mark: "01",
+    style: "",
+    description: "A decentralized escrow-powered marketplace enabling secure and transparent trade between buyers and sellers.",
+    tags: ["TypeScript", "Next.js", "Solidity", "Stellar"],
+  },
+  {
+    title: "SwiftSend",
+    kind: "Fintech",
+    mark: "02",
+    style: "alt",
+    description: "A cross-border money transfer platform leveraging Stellar blockchain for fast, low-cost remittances.",
+    tags: ["React", "Django", "Stellar", "Python"],
+  },
+  {
+    title: "CineScope",
+    kind: "Web App",
+    mark: "03",
+    style: "gold",
+    description: "A movie discovery app with trending titles, search, and personalized recommendations powered by TMDB API.",
+    tags: ["React", "Vite", "TMDB API", "Appwrite"],
+  },
+  {
+    title: "ncAGENTS",
+    kind: "AI Platform",
+    mark: "04",
+    style: "",
+    description: "An AI agent management platform for creating, deploying, and collaborating with intelligent AI agents.",
+    tags: ["TypeScript", "React", "Tailwind", "Framer Motion"],
+  },
 ];
-export const skills = ["Python", "JavaScript", "TypeScript", "Django", "Next.js", "React", "PostgreSQL", "SQL", "Git & GitHub", "Data Analysis", "REST APIs", "Power BI"];
+
+export const skills = [
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "Django",
+  "Next.js",
+  "React",
+  "PostgreSQL",
+  "SQL",
+  "Git & GitHub",
+  "Data Analysis",
+  "REST APIs",
+  "Power BI",
+  "Stellar",
+  "Solidity",
+  "Docker",
+];

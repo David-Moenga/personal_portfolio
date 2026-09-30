@@ -1,2 +1,20 @@
 import Link from "next/link";
-export function Navigation() { return <header className="shell nav"><Link className="brand" href="/">DAVID<span>.</span></Link><nav className="navlinks"><Link href="/about">About</Link><Link href="/projects">Projects</Link><Link href="/experience">Experience</Link><Link href="/blog">Blog</Link><Link className="button" href="/contact">Let&apos;s talk</Link></nav></header>; }
+
+export function Navigation() {
+  return (
+    <header className="shell nav">
+      <Link className="brand" href="/">
+        DAVID<span>.</span>
+      </Link>
+      <nav className="navlinks">
+        <Link href="/about">About</Link>
+        <Link href="/projects">Projects</Link>
+        <Link href="/experience">Experience</Link>
+        <Link href="/blog">Blog</Link>
+        <Link className="button" href="/contact">
+          Let&apos;s talk
+        </Link>
+      </nav>
+    </header>
+  );
+}

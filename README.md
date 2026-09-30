@@ -10,7 +10,7 @@ A full-stack portfolio application with a Next.js frontend and Django REST API. 
 
 ## Run locally
 
-```bash
+```
 # Backend
 cd backend
 cp .env.example .env
@@ -23,7 +23,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-```bash
+```
 cd frontend
 npm install
 npm run dev
@@ -36,3 +36,18 @@ Open `http://localhost:3000` for the portfolio and `http://localhost:8000/admin/
 Add projects and posts in Django Admin. A project appears on the home page when its `featured` field is enabled. A post becomes public when its `published` field is enabled.
 
 Place your photo at `frontend/public/profile.jpg` to display it in the home-page hero card. Until then, the `DM` placeholder is displayed.
+
+## Features
+
+- **Project Showcase**: Display your projects with detailed descriptions, technologies used, and links to source code or live demos
+- **Project Filtering**: Filter projects by technology
+- **Project Details**: Individual project pages with highlights and comprehensive information
+- **Skills & Experience**: Showcase your professional skills and work experience
+- **Blog**: Share your technical writing and insights
+- **Contact Form**: Allow visitors to get in touch with you
+- **Responsive Design**: Looks great on all devices
+- **Admin Panel**: Easy content management through Django Admin
+
+## About
+
+[david-moenga.vercel.app](https://david-moenga.vercel.app)
