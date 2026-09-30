@@ -5,7 +5,7 @@ import { ProjectCard } from "../../components/ProjectCard";
 import { getProjects, PortfolioProject } from "../../lib/api";
 
 export default function ProjectsPage() {
-  const [projects, setProjects] = useState<PortfolioProject[]>([]);
+  const [projects] = useState<PortfolioProject[]>([]);
   const [filter, setFilter] = useState<string>("all");
   const [loaded, setLoaded] = useState(false);
 

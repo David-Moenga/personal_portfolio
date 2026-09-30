@@ -177,20 +177,9 @@ h3 {
 .portrait {
   position: absolute;
   inset: 70px 55px 0;
-  background: #176b4d;
+  background: linear-gradient(180deg, #176b4d 0%, #0d543b 100%);
   border-radius: 160px 160px 0 0;
-}
-
-.portrait:before {
-  content: "DM";
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--lime);
-  font-size: 78px;
-  font-weight: 800;
-  letter-spacing: -0.1em;
+  overflow: hidden;
 }
 
 .floating {

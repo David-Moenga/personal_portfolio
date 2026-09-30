@@ -5,7 +5,8 @@ import { getProjects } from "../lib/api";
 import { ProfileImage } from "../components/ProfileImage";
 
 export default async function Home() {
-  const dynamicProjects = (await getProjects()).filter((project) => project.featured).slice(0, 4);
+  const allProjects = await getProjects();
+  const dynamicProjects = allProjects.filter((project) => project.featured && project.slug !== "cinescope").slice(0, 4);
 
   return (
     <>

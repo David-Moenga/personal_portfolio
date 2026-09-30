@@ -9,7 +9,7 @@ export default async function ExperiencePage() {
         <p className="eyebrow">Career</p>
         <h1>Experience.</h1>
         <p className="lead">
-          My professional journey and the experiences that have shaped my career.
+          My professional journey across software engineering, data analysis, and data science.
         </p>
       </section>
 
@@ -22,7 +22,7 @@ export default async function ExperiencePage() {
           </div>
         ) : (
           <div className="experience-list">
-            {experience.map((exp: any) => (
+            {experience.map((exp) => (
               <div className="card experience-card" key={exp.id}>
                 <div className="experience-header">
                   <div>
@@ -38,7 +38,7 @@ export default async function ExperiencePage() {
                 <p className="experience-description">{exp.description}</p>
                 {exp.technologies && exp.technologies.length > 0 && (
                   <div className="tech-tags">
-                    {exp.technologies.map((tech: string) => (
+                    {exp.technologies.map((tech) => (
                       <span className="tag" key={tech}>
                         {tech}
                       </span>

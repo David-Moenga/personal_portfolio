@@ -1,41 +1,12 @@
 # David Moenga — Personal Portfolio
 
-A full-stack portfolio application with a Next.js frontend and Django REST API. It showcases projects, professional experience, skills, education, certifications, and technical writing, while Django Admin provides content management.
+A modern, fully static portfolio website built with Next.js. Showcases projects, professional experience, skills, and provides a contact section.
 
 ## Stack
 
 - Frontend: Next.js 14, React, TypeScript
-- Backend: Django, Django REST Framework
-- Database: PostgreSQL
-
-## Run locally
-
-```
-# Backend
-cd backend
-cp .env.example .env
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver
-```
-
-```
-cd frontend
-npm install
-npm run dev
-```
-
-Open `http://localhost:3000` for the portfolio and `http://localhost:8000/admin/` to manage its content.
-
-## Adding your content
-
-Add projects and posts in Django Admin. A project appears on the home page when its `featured` field is enabled. A post becomes public when its `published` field is enabled.
-
-Place your photo at `frontend/public/profile.jpg` to display it in the home-page hero card. Until then, the `DM` placeholder is displayed.
+- Styling: Custom CSS with CSS variables
+- Deployment: Vercel / Netlify (static site)
 
 ## Features
 
@@ -43,10 +14,59 @@ Place your photo at `frontend/public/profile.jpg` to display it in the home-page
 - **Project Filtering**: Filter projects by technology
 - **Project Details**: Individual project pages with highlights and comprehensive information
 - **Skills & Experience**: Showcase your professional skills and work experience
-- **Blog**: Share your technical writing and insights
-- **Contact Form**: Allow visitors to get in touch with you
+- **Contact Section**: Contact information and email form
 - **Responsive Design**: Looks great on all devices
-- **Admin Panel**: Easy content management through Django Admin
+- **Modern UI**: Clean, modern design with smooth animations
+
+## Run locally
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` to view the portfolio.
+
+## Deployment
+
+This is a fully static site with no backend dependency. Deploy to any static hosting service:
+
+### Vercel
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+```bash
+npm install -g netlify-cli
+netlify login
+netlify deploy --prod
+```
+
+## Project Structure
+
+```
+frontend/
+├── app/                # Next.js app router pages
+│   ├── about/          # About page
+│   ├── blog/           # Blog page
+│   ├── contact/        # Contact page
+│   ├── experience/     # Experience page
+│   ├── projects/       # Projects page
+│   └── page.tsx        # Home page
+├── components/         # React components
+│   ├── Footer.tsx
+│   ├── Navigation.tsx
+│   ├── ProfileImage.tsx
+│   └── ProjectCard.tsx
+├── lib/                # Data and utilities
+│   ├── api.ts          # Static data (no backend)
+│   └── data.ts         # Static project data
+├── public/             # Static assets
+└── package.json
+```
 
 ## About
 

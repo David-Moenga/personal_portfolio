@@ -9,9 +9,7 @@ export function ProfileImage() {
           height: "100%",
           objectFit: "cover",
           borderRadius: "160px 160px 0 0",
-        }}
-        onError={(e) => {
-          (e.target as HTMLImageElement).style.display = "none";
+          display: "block",
         }}
       />
     </div>

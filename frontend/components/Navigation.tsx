@@ -7,6 +7,7 @@ export function Navigation() {
         DAVID<span>.</span>
       </Link>
       <nav className="navlinks">
+        <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/projects">Projects</Link>
         <Link href="/experience">Experience</Link>

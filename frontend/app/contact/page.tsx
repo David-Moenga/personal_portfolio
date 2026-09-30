@@ -1,37 +1,4 @@
-"use client";
-
-import { useState } from "react";
-
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
-
-    try {
-      const response = await fetch("/api/contact/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus("sent");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
-
   return (
     <>
       <section className="shell page-hero">
@@ -51,7 +18,7 @@ export default function ContactPage() {
             </p>
             <div className="contact-info">
               <p>
-                <strong>Email:</strong> david.moenga@example.com
+                <strong>Email:</strong> moengadavid90@gmail.com
               </p>
               <p>
                 <strong>Location:</strong> Nairobi, Kenya
@@ -64,50 +31,22 @@ export default function ContactPage() {
 
           <div className="card">
             <h3>Send a message</h3>
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form className="contact-form" action="mailto:moengadavid90@gmail.com" method="post" encType="text/plain">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
-                <input
-                  id="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
+                <input id="name" type="text" name="name" required />
               </div>
               <div className="form-group">
                 <label htmlFor="email">Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
+                <input id="email" type="email" name="email" required />
               </div>
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  required
-                />
+                <textarea id="message" name="message" rows={5} required />
               </div>
-              <button
-                type="submit"
-                className="button"
-                disabled={status === "sending"}
-              >
-                {status === "sending" ? "Sending..." : "Send Message"}
+              <button type="submit" className="button">
+                Send Message
               </button>
-              {status === "sent" && (
-                <p className="form-success">Message sent successfully!</p>
-              )}
-              {status === "error" && (
-                <p className="form-error">Failed to send message. Please try again.</p>
-              )}
             </form>
           </div>
         </div>
