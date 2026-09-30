@@ -31,6 +31,14 @@ export const projects = [
     description: "An AI agent management platform for creating, deploying, and collaborating with intelligent AI agents.",
     tags: ["TypeScript", "React", "Tailwind", "Framer Motion"],
   },
+  {
+    title: "Vendas.co.ke",
+    kind: "E-Commerce",
+    mark: "05",
+    style: "",
+    description: "A live e-commerce platform hosted at vendas.co.ke, showcasing full-stack development and deployment expertise.",
+    tags: ["Full-Stack", "E-Commerce", "Web Hosting", "Production"],
+  },
 ];
 
 export const skills = [

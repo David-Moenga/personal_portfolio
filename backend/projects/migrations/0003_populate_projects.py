@@ -212,6 +212,23 @@ def populate_projects(apps, schema_editor):
             "status": "maintained",
             "featured": False,
         },
+        {
+            "title": "Vendas.co.ke",
+            "slug": "vendas-coke",
+            "summary": "A live e-commerce platform hosted at vendas.co.ke, showcasing full-stack development and deployment expertise.",
+            "description": "Vendas.co.ke is a fully functional e-commerce platform that demonstrates end-to-end development and deployment capabilities. The platform is live and serving real users, showcasing practical experience with production systems, domain hosting, and real-world problem solving.",
+            "repository_url": "",
+            "live_url": "https://vendas.co.ke",
+            "technologies": ["Full-Stack", "E-Commerce", "Web Hosting", "Production"],
+            "highlights": [
+                "Live production deployment",
+                "Custom domain hosting",
+                "Real-world user traffic",
+                "End-to-end development",
+            ],
+            "status": "maintained",
+            "featured": True,
+        },
     ]
 
     for project_data in projects:
@@ -228,7 +245,7 @@ def reverse_populate(apps, schema_editor):
         "ecommerce-platform", "statistics-sql-data-analysis",
         "exploratory-data-analysis", "portfolio-creator",
         "customer-review-site", "chamapp", "apple-clone",
-        "everything-about-ai",
+        "everything-about-ai", "vendas-coke",
     ]).delete()
 
 
