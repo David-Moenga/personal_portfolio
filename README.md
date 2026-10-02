@@ -21,7 +21,6 @@ A modern, fully static portfolio website built with Next.js. Showcases projects,
 ## Run locally
 
 ```bash
-cd frontend
 npm install
 npm run dev
 ```
@@ -46,9 +45,7 @@ netlify deploy --prod
 ```
 
 ## Project Structure
-
 ```
-frontend/
 ├── app/                # Next.js app router pages
 │   ├── about/          # About page
 │   ├── blog/           # Blog page
